@@ -12,6 +12,10 @@ let highScore   = document.querySelector(".highscore");
 let result      = document.querySelector(".number");
 let body        = document.querySelector("body");
 
+// Score limitation
+const MIN_SCORE = 0;
+const MAX_SCORE = 20;
+
 // Generating a random number between 1 and 20
 let number = Math.round(Math.random() * 19) + 1;
 
@@ -21,7 +25,7 @@ btnCheck.addEventListener("click", function(event) {
     let guessNumber = Number(guess.value);
     let scoreNumber = Number(score.innerHTML);
 
-    if(guessNumber && (scoreNumber > 0) && (guessNumber > 0) && (guessNumber <= 20))
+    if(guessNumber && (scoreNumber > MIN_SCORE) && (guessNumber > MIN_SCORE) && (guessNumber <= MAX_SCORE))
     {
         if(guessNumber > number)
         {
@@ -41,11 +45,11 @@ btnCheck.addEventListener("click", function(event) {
 
             body.style.backgroundColor = "#60b347";
             result.style.width = "25rem";
-            btnCheck.disabled          = true;
+            btnCheck.disabled  = true;
         }
 
         // If score reached the zero, then disable the check button, and shows a message
-        if(scoreNumber === 0)
+        if(scoreNumber === MIN_SCORE)
         {
             message.innerHTML = "😐 Sorry, you lost the game!";
 
@@ -63,14 +67,14 @@ btnCheck.addEventListener("click", function(event) {
     }
 });
 
-// Again Button
+// Again Button (Reset)
 btnAgain.addEventListener("click", function(event) {
     
     number            = Math.round(Math.random() * 19) + 1;
     result.innerHTML  = "?";
-    guess.value       = 0;
+    guess.value       = "";
     message.innerHTML = "Start guessing...";
-    score.innerHTML   = 20;
+    score.innerHTML   = MAX_SCORE;
 
     body.style.backgroundColor = "#222";
     result.style.width         = "15rem";
