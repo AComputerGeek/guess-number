@@ -17,7 +17,7 @@ const MIN_SCORE = 0;
 const MAX_SCORE = 20;
 
 // Generating a random number between 1 and 20
-let number = Math.round(Math.random() * 19) + 1;
+let secretNumber = Math.round(Math.random() * 19) + 1;
 
 // Check Button
 btnCheck.addEventListener("click", function(event) {
@@ -27,12 +27,12 @@ btnCheck.addEventListener("click", function(event) {
 
     if(guessNumber && (scoreNumber > MIN_SCORE) && (guessNumber > MIN_SCORE) && (guessNumber <= MAX_SCORE))
     {
-        if(guessNumber > number)
+        if(guessNumber > secretNumber)
         {
             message.innerHTML = "🤦‍♂️ Your guess is high!";
             score.innerHTML   = `${--scoreNumber}`;
         }
-        else if(guessNumber < number)
+        else if(guessNumber < secretNumber)
         {
             message.innerHTML = "🤦‍♂️ Your guess is low!";
             score.innerHTML   = `${--scoreNumber}`;
@@ -40,12 +40,12 @@ btnCheck.addEventListener("click", function(event) {
         else
         {            
             message.innerHTML = "🎉 Correct number!";
-            result.innerHTML  = number;
+            result.innerHTML  = secretNumber;
             (highScore.innerHTML < scoreNumber) ? highScore.innerHTML = scoreNumber : null;
 
             body.style.backgroundColor = "#60b347";
-            result.style.width = "25rem";
-            btnCheck.disabled  = true;
+            result.style.width         = "25rem";
+            btnCheck.disabled          = true;
         }
 
         // If score reached the zero, then disable the check button, and shows a message
@@ -57,11 +57,11 @@ btnCheck.addEventListener("click", function(event) {
             btnCheck.disabled          = true;
         }
     }
-    else if(!guessNumber)
+    else if(!guessNumber) // Guess number is empty OR zero
     {
         message.innerHTML = "⛔ No number!";
     }
-    else
+    else // Guess number is NOT between 1 and 20
     {
         message.innerHTML = "❌ Guess should be between 1 and 20!";
     }
@@ -70,7 +70,7 @@ btnCheck.addEventListener("click", function(event) {
 // Again Button (Reset)
 btnAgain.addEventListener("click", function(event) {
     
-    number            = Math.round(Math.random() * 19) + 1;
+    secretNumber      = Math.round(Math.random() * 19) + 1;
     result.innerHTML  = "?";
     guess.value       = "";
     message.innerHTML = "Start guessing...";
