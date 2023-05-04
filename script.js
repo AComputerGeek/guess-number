@@ -27,15 +27,10 @@ btnCheck.addEventListener("click", function(event) {
 
     if(guessNumber && (scoreNumber > MIN_SCORE) && (guessNumber > MIN_SCORE) && (guessNumber <= MAX_SCORE))
     {
-        if(guessNumber > secretNumber)
+        if((guessNumber > secretNumber) || (guessNumber < secretNumber))
         {
-            message.innerHTML = "🤦‍♂️ Your guess is high!";
-            score.innerHTML   = `${--scoreNumber}`;
-        }
-        else if(guessNumber < secretNumber)
-        {
-            message.innerHTML = "🤦‍♂️ Your guess is low!";
-            score.innerHTML   = `${--scoreNumber}`;
+            (guessNumber > secretNumber) ? message.innerHTML = "🤦‍♂️ Your guess is high!" : message.innerHTML = "🤦‍♂️ Your guess is low!";
+            score.innerHTML = `${--scoreNumber}`;
         }
         else
         {            
