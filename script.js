@@ -19,6 +19,7 @@ const MAX_SCORE = 20;
 // Generating a random number between 1 and 20
 let secretNumber = Math.round(Math.random() * 19) + 1;
 
+
 // Check Button
 btnCheck.addEventListener("click", function(event) {
 
@@ -61,6 +62,7 @@ btnCheck.addEventListener("click", function(event) {
         message.innerHTML = "❌ Guess should be between 1 and 20!";
     }
 });
+
 
 // Again Button (Reset)
 btnAgain.addEventListener("click", function(event) {
