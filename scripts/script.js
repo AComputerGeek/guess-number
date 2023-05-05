@@ -3,14 +3,14 @@
 
 'use strict';
 
-let guess       = document.querySelector("input");
-let btnCheck    = document.querySelector(".check");
-let btnAgain    = document.querySelector(".again");
-let message     = document.querySelector(".message");
-let score       = document.querySelector(".score");
-let highScore   = document.querySelector(".highscore");
-let result      = document.querySelector(".number");
-let body        = document.querySelector("body");
+let guess     = document.querySelector("input");
+let btnCheck  = document.querySelector(".check");
+let btnAgain  = document.querySelector(".again");
+let message   = document.querySelector(".message");
+let score     = document.querySelector(".score");
+let highScore = document.querySelector(".highscore");
+let result    = document.querySelector(".number");
+let body      = document.querySelector("body");
 
 // Score limitation
 const MIN_SCORE = 0;
